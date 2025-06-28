@@ -1,5 +1,5 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/LysenkovIlya-Hexlet/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/LysenkovIlya-Hexlet/python-project-50/actions)
+[![Actions Status](https://github.com/IlyaLysenkov-Hexlet/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/IlyaLysenkov-Hexlet/python-project-50/python-project-50/actions)
 # gendiff
 
 Описание проекта:
