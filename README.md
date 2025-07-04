@@ -1,5 +1,5 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/LysenkovIlya-Hexlet/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/LysenkovIlya-Hexlet/python-project-50/actions)
+[![Actions Status](https://github.com/IlyaLysenkov-Hexlet/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/IlyaLysenkov-Hexlet/python-project-50/actions)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=IlyaLysenkov-Hexlet_python-project-50&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=IlyaLysenkov-Hexlet_python-project-50)
 
 # gendiff — утилита для сравнения файлов
