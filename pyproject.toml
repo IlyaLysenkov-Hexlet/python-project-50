@@ -10,7 +10,7 @@ packages = [{include = "gendiff"}]
 flake8 = "^7.0.0"
 python = "^3.10"
 PyYAML = "^6.0"
-pytest = "^7.0"
+pytest = "^7.4"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"
