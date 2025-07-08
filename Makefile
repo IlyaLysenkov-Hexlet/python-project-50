@@ -8,5 +8,5 @@ test:
 	poetry run pytest -v
 
 test-cov:
-	coverage run -m pytest
-	coverage xml
+	poetry run coverage run -m pytest
+	poetry run coverage xml -o coverage.xml
