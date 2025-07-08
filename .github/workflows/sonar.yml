@@ -30,18 +30,8 @@ jobs:
       - name: Run tests with coverage
         run: poetry run pytest --cov=gendiff --cov-report=xml
 
-      - name: Fix coverage paths for SonarCloud
-        run: |
-          python -c "
-import xml.etree.ElementTree as ET
-tree = ET.parse('coverage.xml')
-root = tree.getroot()
-sources = root.find('sources')
-if sources is not None:
-    for source in sources.findall('source'):
-        source.text = 'gendiff'
-tree.write('coverage_fixed.xml')
-"
+      - name: Fix coverage paths
+        run: python fix_coverage_xml.py
 
       - name: Run SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
