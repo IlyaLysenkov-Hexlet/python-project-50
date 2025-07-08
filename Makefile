@@ -1,11 +1,11 @@
 lint:
-	poetry run ruff check gendiff tests
+    poetry run ruff check --fix .
 
 test:
 	pytest
 
-install:
-	poetry install
+test:
+	poetry run pytest -v
 
 test-cov:
 	coverage run -m pytest
