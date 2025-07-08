@@ -1,15 +1,13 @@
 import xml.etree.ElementTree as ET
 
-file_path = "coverage.xml"
+def fix_coverage_xml(path_in='coverage.xml', path_out='coverage_fixed.xml'):
+    tree = ET.parse(path_in)
+    root = tree.getroot()
+    sources = root.find('sources')
+    if sources is not None:
+        for source in sources.findall('source'):
+            source.text = 'gendiff'
+    tree.write(path_out)
 
-tree = ET.parse(file_path)
-root = tree.getroot()
-
-# Найди элемент <source> и замени его текст на "."
-for source in root.findall(".//sources/source"):
-    print(f"Было: {source.text}")
-    source.text = "."
-    print(f"Стало: {source.text}")
-
-tree.write(file_path, encoding="utf-8", xml_declaration=True)
-print("✅ coverage.xml обновлён.")
+if __name__ == '__main__':
+    fix_coverage_xml()
