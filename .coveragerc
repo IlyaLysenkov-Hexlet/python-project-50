@@ -1,2 +1,9 @@
 [run]
-source = gendiff
+source = gendiff,formaters,scripts
+
+[report]
+exclude_lines =
+    pragma: no cover
+
+[coverage:run]
+disable_warnings = module-not-imported

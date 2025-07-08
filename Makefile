@@ -1,12 +1,12 @@
 lint:
-	uv run -- ruff check gendiff tests
+    ruff check gendiff formaters scripts tests
 
 test:
-	uv run pytest
-	
+    pytest
+
 install:
-	poetry install
+    poetry install
 
 test-cov:
-	coverage run -m pytest
-	coverage xml
+    coverage run -m pytest
+    coverage xml
