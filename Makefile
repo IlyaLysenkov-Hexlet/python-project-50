@@ -1,12 +1,12 @@
 lint:
-    ruff check gendiff formaters scripts tests
+	ruff check gendiff formaters scripts tests
 
 test:
-    pytest
+	pytest
 
 install:
-    poetry install
+	poetry install
 
 test-cov:
-    coverage run -m pytest
-    coverage xml
+	coverage run -m pytest
+	coverage xml
