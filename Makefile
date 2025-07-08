@@ -1,8 +1,8 @@
+install:
+	poetry install
+
 lint:
 	poetry run ruff check --fix .
-
-test:
-	pytest
 
 test:
 	poetry run pytest -v
