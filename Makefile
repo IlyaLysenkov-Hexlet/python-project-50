@@ -1,9 +1,9 @@
 lint:
-	uv run -- ruff check gendiff tests
+	ruff check gendiff tests
 
 test:
-	uv run pytest
-	
+	pytest
+
 install:
 	poetry install
 
