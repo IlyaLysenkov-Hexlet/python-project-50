@@ -41,7 +41,7 @@ if sources is not None:
     for source in sources.findall('source'):
         source.text = 'gendiff'
 tree.write('coverage_fixed.xml')
-          "
+"
 
       - name: Run SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
