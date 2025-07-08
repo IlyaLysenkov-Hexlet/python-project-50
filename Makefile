@@ -1,5 +1,5 @@
 lint:
-	ruff check gendiff formaters scripts tests
+	poetry run ruff check gendiff tests
 
 test:
 	pytest
