@@ -11,6 +11,9 @@ test-cov:
 	poetry run coverage run -m pytest
 	poetry run coverage xml -o coverage.xml
 
+test-coverage:
+	make test-cov
+
 check:
 	make lint
 	make test
