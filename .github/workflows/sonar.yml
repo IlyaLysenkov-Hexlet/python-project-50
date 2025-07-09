@@ -1,45 +1,37 @@
-name: SonarCloud
+name: Python CI
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
+  - push
+  - pull_request
 
 jobs:
-  sonarcloud:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
+      - uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-
-      - name: Install Poetry
-        run: pip install poetry
-
+          python-version: '3.12'
       - name: Install dependencies
-        run: poetry install --with dev
+        run: |
+          pip install uv
+          make install
+      - name: Run linter and pytest
+        run: |
+          make check
+      - name: Run test coverage
+        run: |
+          make test-coverage
 
-      - name: Run tests with coverage
-        run: poetry run pytest --cov=gendiff --cov-report=xml
-
-      - name: Fix coverage paths
-        run: python fix_coverage_xml.py
-
-      - name: Run SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          projectBaseDir: .
-          args: >
-            -Dsonar.python.coverage.reportPaths=coverage_fixed.xml
-            -Dsonar.sources=gendiff
-            -Dsonar.tests=tests
+      - name: SonarQubeScan
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=IlyaLysenkov-Hexlet_python-project-50
+            -Dsonar.organization=ilyalysenkov-hexlet
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.coverage.exclusions=tests/**
+            -Dsonar.exclusions=tests/**
